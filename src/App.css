@@ -1,12 +1,10 @@
 
 .App {
-  background-image: url("./images/lotr-bg2.jpg");
+  background-image: url("./images/lotr-bg1.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   /* Makes the image fixed in the viewport so that it doesn't move when 
      the content height is greater than the image height */
   background-attachment: fixed;
   background-size: cover;
-  width: 100vw;
-  height:100vh;
 }

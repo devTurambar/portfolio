@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import bg from './images/lotr-bg1.jpg'
+import Home from "./Components/Home/Home";
+import About from "./Components/About/About";
+import Projects from "./Components/Projects/Projects";
 
 function App() {
 
@@ -28,11 +31,12 @@ function App() {
     <div className="App">
       <div className='screen'>
         <Navbar />
-        {/* <About />
+        <Home />
+        <About />
         <Projects />
-        <Skills />
+        {/* <Skills />
         <Testimonials />
-        <Contact /> */}        
+        <Contact />         */}
       </div>
 
     </div>
