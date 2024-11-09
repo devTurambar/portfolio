@@ -1,8 +1,8 @@
-const Projects = () => {
+const Contacts = () => {
     return (
         <div className="text-purple font-bold h-screen pt-10">
-            Projectsdds
+            Contacts
         </div>
     )
 }
-export default Projects;
+export default Contacts;

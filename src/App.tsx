@@ -1,12 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import bg from './images/lotr-bg1.jpg'
 import Home from "./Components/Home/Home";
 import About from "./Components/About/About";
 import Projects from "./Components/Projects/Projects";
+import Contacts from "./Components/Contacts/Contacts";
 
 function App() {
+  const homeRef = useRef<HTMLDivElement | null>(null);
+  const aboutRef = useRef<HTMLDivElement | null>(null);
+  const projectsRef = useRef<HTMLDivElement | null>(null);
+  const resumeRef = useRef<HTMLDivElement | null>(null);
+  const hireMeRef = useRef<HTMLDivElement | null>(null);
+
+  const [navClicked, setNavClicked] = useState("");
+  const handleNavClick = (option:string) => {
+    setNavClicked(option);
+    switch (option){
+      case "Home":
+        homeRef.current?.scrollIntoView({
+          behavior:"smooth"
+        });
+        break;
+      case "About":
+        aboutRef.current?.scrollIntoView();
+        break;
+      case "Projects":
+        projectsRef.current?.scrollIntoView();
+        break;
+      // case "Resume":
+      //   resumeRef.current?.scrollIntoView();
+      //   break;
+      // case "Hire me":
+      //   hireMeRef.current?.scrollIntoView();
+      //   break;
+      default:
+    }
+  }
 
   const [dimensions, setDimentions] = useState({
     height: window.innerHeight,
@@ -29,16 +60,25 @@ function App() {
   return (
     // <div className="App bg-center bg-cover bg-no-repeat" style={{backgroundImage: `url(${bg})`}}>
     <div className="App">
-      <div className='screen'>
-        <Navbar />
-        <Home />
-        <About />
-        <Projects />
+      <Navbar onValueChange={handleNavClick}/>
+      <div className="top-10">
+        <div ref={homeRef}>
+          <Home />
+        </div>
+        <div ref={aboutRef}>
+          <About />
+        </div>
+        <div ref={projectsRef}>
+          <Projects/>
+        </div>
+        <div ref={projectsRef}>
+          <Projects/>
+        </div>
         {/* <Skills />
         <Testimonials />
-        <Contact />         */}
+        */}
+        <Contacts />         
       </div>
-
     </div>
   );
 }
