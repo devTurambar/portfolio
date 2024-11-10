@@ -24,10 +24,14 @@ function App() {
         });
         break;
       case "About":
-        aboutRef.current?.scrollIntoView();
+        aboutRef.current?.scrollIntoView({
+          behavior:"smooth"
+        });
         break;
       case "Projects":
-        projectsRef.current?.scrollIntoView();
+        projectsRef.current?.scrollIntoView({
+          behavior:"smooth"
+        });
         break;
       // case "Resume":
       //   resumeRef.current?.scrollIntoView();
@@ -60,8 +64,10 @@ function App() {
   return (
     // <div className="App bg-center bg-cover bg-no-repeat" style={{backgroundImage: `url(${bg})`}}>
     <div className="App">
-      <Navbar onValueChange={handleNavClick}/>
-      <div className="top-10">
+      <div className='fixed h-10 w-full top-0 bg-black'>
+        <Navbar onValueChange={handleNavClick}/>
+      </div>
+      <div className="top-10 container">
         <div ref={homeRef}>
           <Home />
         </div>
